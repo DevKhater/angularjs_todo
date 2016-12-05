@@ -1,0 +1,22 @@
+<div ng-controller="mainCtrl">
+    <h1 style="text-align:center;">Add A Task</h1>
+    <input ng-keyup="searchEnter()" ng-model="task" type="text" style="display:block; margin:0 auto; padding:5px;font-size:15px;">
+
+    <div id="tasks">
+        <ul>
+            <li ng-repeat="oneTask in tasks track by $index">
+            <input type="checkbox" ng-model="oneTask.status" ng-change="reList()">
+		<span
+			contenteditable="false"
+			ng-keydown="editEnter(oneTask.theTask)"
+			ng-dblclick="contentEdit(oneTask.theTask)"
+			ng-model="oneTask.theTask"
+			class="done-{{oneTask.status}}">
+			{{oneTask.theTask}}
+		</span>
+	</li>
+        </ul>
+    </div>
+
+
+</div>
